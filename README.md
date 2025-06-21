@@ -10,6 +10,7 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -  1x 10  µF Electorlytic Capacitor
 -  2x 0.1 µF Capacitor (104 Ceramic Capacitor)
 -  1x MB-102
+-  1x Push-up Button
 -  1x 330Ω Resistor (Optional
 -  1x LED (Light Emitting Diodes) (Optional)
 -  1x PAM8403 with Volume Control (Optional)
@@ -25,6 +26,7 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -  When playing the ringtone on max volume, you may experience cracking noises from the speaker use a film capacitor instead of an electrolytic one on the PAM8403 Input.
 -  If the doorbell is connected to the WiFi and no output it means that it had trouble sending data to the network, find a place with less obstacles to avoid signal degradation.
 -  Make sure both ESP32s and the doorbell module are connected to a stable 5V power source.
+-  Make sure that the Receiver ESP32 has all common GND, specifically on GPIO18, if not the ringtone will not work.
 
 -------------------------------------------------------------------------------------------
 
@@ -68,4 +70,26 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 |:-------:|:----:|
 | Red Wire | L OUT + (PAM8403 | 
 | Black Wire | L OUT - (PAM8403 | 
+
+**ESP32 (Sender)**
+| ESP32 | Pins |
+|:-----:|:----:|
+| LED | GPIO 2 (Built-in) |
+| Button | GPIO 4 |
+
+| SSD1306 | Pins |
+|:-------:|:----:|
+| **GND** | GND |
+| **VCC** | VIN | 
+| SCK/SCL | GPIO 22 (ESP32) | 
+| SDA | GPI0 21 (ESP32) | 
+
+| Button | Pins |
+|:------:|:----:|
+| 1st Leg | GPIO 4 (ESP32) | 
+| 2nd Leg | GND | 
+
+
+-------------------------------------------------------------------------------------------
+
 
