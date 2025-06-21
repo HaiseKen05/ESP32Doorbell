@@ -2,8 +2,8 @@
 #include <WebServer.h>
 
 // Wi-Fi Credentials
-const char* ssid = "ESP32-AP";
-const char* password = "ESP32-Connect";
+const char* ssid = "";
+const char* password = "";
 
 // Web Server on port 80
 WebServer server(80);
