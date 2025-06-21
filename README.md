@@ -9,10 +9,11 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -  1x 100 µF Electrolytic Capacitor
 -  1x 10  µF Electorlytic Capacitor
 -  2x 0.1 µF Capacitor (104 Ceramic Capacitor)
+-  1x MB-102
 -  1x 330Ω Resistor (Optional
 -  1x LED (Light Emitting Diodes) (Optional)
 -  1x PAM8403 with Volume Control (Optional)
--  1x SSD1306 0.96in OLED Display (Optional
+-  1x SSD1306 0.96in OLED Display (Optional)
 
 -------------------------------------------------------------------------------------------
 
