@@ -123,14 +123,17 @@ In Arduino IDE, go to Tools > Port and find which COM port corresponds to each E
 
 4. Configure Wi-Fi Credentials
 Edit both sketches to include your local Wi-Fi SSID and password:
+```bash
 // Wi-Fi Credentials
 const char* ssid = ""; // WiFi Name
 const char* password = ""; // WiFi Password
-5. Set Receiver IP in Sender Sketch
+```
+6. Set Receiver IP in Sender Sketch
 Upload the Receiver sketch first.
 
 Open the Serial Monitor at 115200 baud to find its IP address once connected.
 
 Update the Sender code with that IP:
+```bash
 const char* receiverIP = ""; // Receiver IP Address 
-
+```
