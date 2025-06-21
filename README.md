@@ -6,9 +6,9 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -  1x DFPlayer
 -  1x 4Ω 3 Watt Speaker
 -  1x SD card (Micro SD or TF Card, 32GB max storage)
--  1x 100 µF Electrolytic Capacitor
--  1x 10  µF Electorlytic Capacitor
--  2x 0.1 µF Capacitor (104 Ceramic Capacitor)
+-  1x 100µF Electrolytic Capacitor
+-  2x 10µF Electorlytic Capacitor
+-  1x 0.1µF Capacitor (104 Ceramic Capacitor)
 -  1x MB-102
 -  1x Push-up Button
 -  1x 330Ω Resistor (Optional
@@ -19,10 +19,11 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -------------------------------------------------------------------------------------------
 
 # Important!
--  Place 100 µF Capacitor and 0.1 µF Ceramic Capacitor in parallel with the MB-102 5V and GND to smooth out power fluctuations.
+-  Place 100µF Capacitor and 0.1µF Ceramic Capacitor in parallel with the MB-102 5V and GND to smooth out power fluctuations.
 -  DFPlayer Mini Module is sensitive to power fluctuations.
 -  The ESP32 requires a "middleman" for both the Sender and Receiver to communicate, use either your home network or a dedicated router for this.
 -  The sound quality of the speaker may have a humming noise when setting the volume from the PAM8403 to max.
+-  Connect a 10µF Capacitor (or a film capacitor) in series with each of the DAC_R and DAC_L to the R and L input pins of the PAM8403. ( Capacitor ( + ) connects to DAC_R, Capacitor ( - ) to R input of the PAM8403, DO THE SAME FOR THE OTHER DAC_L and L Input (This is only applicable to electrolytic capacitor)
 -  When playing the ringtone on max volume, you may experience cracking noises from the speaker use a film capacitor instead of an electrolytic one on the PAM8403 Input.
 -  If the doorbell is connected to the WiFi and no output it means that it had trouble sending data to the network, find a place with less obstacles to avoid signal degradation.
 -  Make sure both ESP32s and the doorbell module are connected to a stable 5V power source.
