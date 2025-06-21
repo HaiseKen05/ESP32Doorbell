@@ -35,6 +35,7 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 
 # Pin Assignments
 
-| Components   | Pin          |
-|:------------:|:------------:|
-|ESP32 (Receiver| 
+**ESP32 (Receiver)**
+| Components | Pins | Pin Assignment |
+|:----------:|:----:|:--------------:|
+| DFPlayer | VCC | 5V | 
