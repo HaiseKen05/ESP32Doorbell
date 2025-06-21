@@ -18,6 +18,8 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -------------------------------------------------------------------------------------------
 
 # Important!
+-  Place 100 µF Capacitor and 0.1 µF Ceramic Capacitor in parallel with the MB-102 5V and GND to smooth out power fluctuations.
+-  DFPlayer Mini Module is sensitive to power fluctuations.
 -  The ESP32 requires a "middleman" for both the Sender and Receiver to communicate, use either your home network or a dedicated router for this.
 -  The sound quality of the speaker may have a humming noise when setting the volume from the PAM8403 to max.
 -  When playing the ringtone on max volume, you may experience cracking noises from the speaker use a film capacitor instead of an electrolytic one on the PAM8403 Input.
@@ -37,6 +39,6 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 # Pin Assignments
 
 **ESP32 (Receiver)**
-| Components | Pins | Pin Assignment |
-|:----------:|:----:|:--------------:|
-| DFPlayer | VCC | 5V | 
+| DFPLayer Mini Mp3-TF-16P | Pins | ESP32 Pin |
+|:------------------------:|:----:|:---------:|
+| **VCC** | 5V (MB-102) | |
