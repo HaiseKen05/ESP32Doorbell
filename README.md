@@ -39,6 +39,33 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 # Pin Assignments
 
 **ESP32 (Receiver)**
-| DFPLayer Mini Mp3-TF-16P | Pins | ESP32 Pin |
-|:------------------------:|:----:|:---------:|
-| **VCC** | 5V (MB-102) | |
+| DFPLayer Mini Mp3-TF-16P | Pins |
+|:------------------------:|:----:|
+| **VCC** | 5V (MB-102) |
+| **GND** | GND (MB-102 |
+| DAC_R | R (PAM8403) |
+| DAC_L | L (PAM8403 |
+| IO_2 | GPIO 18 (ESP32) | 
+
+| PAM8403 | Pins |
+|:-------:|:----:|
+| R | DAC_R (DFPlayer Mini) |
+| L | DAC_L (DFPlayer Mini) |
+| G | GND (MB-102) |
+| **VCC** | 5V (MB-102) | 
+| **GND** | GND (MB-102) | 
+| L OUT + | Red Wire Speaker | 
+| L OUT - | Black Wire Speaker | 
+
+| ESP32 | Pins |
+|:-----:|:----:|
+| **VIN** | 5V (MB-102) |
+| **GND** | GND (MB-102) | 
+| LED | GPIO 4 |
+| SIGNAL PIN | GPIO 18 |
+
+| Speaker | Pins |
+|:-------:|:----:|
+| Red Wire | L OUT + (PAM8403 | 
+| Black Wire | L OUT - (PAM8403 | 
+
