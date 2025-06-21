@@ -11,9 +11,9 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // Wi-Fi credentials
-const char* ssid = "ESP32-AP";
-const char* password = "ESP32-Connect";
-const char* receiverIP = "192.168.254.118";
+const char* ssid = "";
+const char* password = "";
+const char* receiverIP = "";
 
 // Pins
 const int buttonPin = 4;
