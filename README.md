@@ -92,8 +92,44 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 
 
 -------------------------------------------------------------------------------------------
- # Getting Started 
+🚀 Getting Started
+Follow these steps to set up your ESP32 Doorbell system:
 
- **Setup**
- Op
+1. Install Arduino IDE & ESP32 Board Support
+Install the Arduino IDE.
+
+Go to File > Preferences, add the following to Additional Board URLs:
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+Then, go to Tools > Board > Board Manager, search for ESP32, and install it.
+
+2. Download the Project Code
+Open the [Doorbell](https://github.com/HaiseKen05/ESP32Doorbell/tree/main/Doorbell) folder in the repository.
+
+Download or clone the repo using:
+
+```bash
+https://github.com/HaiseKen05/ESP32Doorbell.git
+```
+locate: 
+**InsideUnit.ino (for the receiver ESP32)**
+**OutsideUnit.ino (for the sender ESP32)**
+
+3. Connect & Identify COM Ports
+Connect both ESP32 DevKit boards to your PC.
+
+In Arduino IDE, go to Tools > Port and find which COM port corresponds to each ESP32.
+⚠️ Upload code to one board at a time!
+
+4. Configure Wi-Fi Credentials
+Edit both sketches to include your local Wi-Fi SSID and password:
+// Wi-Fi Credentials
+const char* ssid = ""; // WiFi Name
+const char* password = ""; // WiFi Password
+5. Set Receiver IP in Sender Sketch
+Upload the Receiver sketch first.
+
+Open the Serial Monitor at 115200 baud to find its IP address once connected.
+
+Update the Sender code with that IP:
+const char* receiverIP = ""; // Receiver IP Address 
 
