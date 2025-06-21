@@ -32,3 +32,9 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 ![image](https://github.com/user-attachments/assets/1e092382-ff64-4710-b704-97ecce082e1b)
 
 -------------------------------------------------------------------------------------------
+
+# Pin Assignments
+
+| Components   | Pin          |
+|:------------:|:------------:|
+|ESP32 (Receiver| 
