@@ -137,3 +137,16 @@ Update the Sender code with that IP:
 ```bash
 const char* receiverIP = ""; // Receiver IP Address 
 ```
+-------------------------------------------------------------------------------------------
+# NOTES
+
+You dont need to worry about having to install libraries for the DFPlayer module as the ESP32 (The Receiver unit) will emulate a button press on one of its GPIO pins (in this case i used GPIO 18 but you can change it to what ever pin you want) other than that everything is working perfectly fine.
+
+-------------------------------------------------------------------------------------------
+
+# Video links 
+
+Wiring Configuration
+
+Final build and Test 
+
