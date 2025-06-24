@@ -2,8 +2,8 @@
 #include <WiFiUdp.h>
 
 // Wi-Fi Credentials
-const char* ssid = "ESP32-AP";
-const char* password = "ESP32-Connect";
+const char* ssid = ""; // Input your WiFi network here
+const char* password = ""; // WiFi Password
 
 // UDP Settings
 WiFiUDP udp;
