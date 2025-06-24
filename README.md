@@ -128,7 +128,7 @@ Edit both sketches to include your local Wi-Fi SSID and password:
 const char* ssid = ""; // WiFi Name
 const char* password = ""; // WiFi Password
 ```
-6. Set Receiver IP in Sender Sketch
+5. Set Receiver IP in Sender Sketch
 Upload the Receiver sketch first.
 
 Open the Serial Monitor at 115200 baud to find its IP address once connected.
