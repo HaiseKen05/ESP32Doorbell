@@ -1,5 +1,5 @@
 #include <WiFi.h>
-#include <HTTPClient.h>
+#include <WiFiUdp.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -11,9 +11,13 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // Wi-Fi credentials
-const char* ssid = "";
-const char* password = "";
-const char* receiverIP = "";
+const char* ssid = "ESP32-AP";
+const char* password = "ESP32-Connect";
+const char* receiverIP = "192.168.254.118";  // e.g., "192.168.4.3" if using static IP setup
+
+// UDP setup
+WiFiUDP udp;
+const int udpPort = 4210;
 
 // Pins
 const int buttonPin = 4;
@@ -53,6 +57,7 @@ void setup() {
   display.println("Initializing...");
   display.display();
 
+  // Wi-Fi Init
   WiFi.begin(ssid, password);
   logMessage("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -64,12 +69,15 @@ void setup() {
 
   logMessage("Connected!\nIP: " + WiFi.localIP().toString());
   digitalWrite(wifiLedPin, HIGH);
+
+  // Start UDP
+  udp.begin(udpPort);  // Optional for sender but can help for receiving replies
 }
 
 void loop() {
   if (digitalRead(buttonPin) == LOW) {
     sendSignal();
-    delay(500);
+    delay(500);  // Debounce delay
   }
 
   if (millis() - lastWifiCheck >= wifiCheckInterval) {
@@ -87,13 +95,13 @@ void loop() {
 
 void sendSignal() {
   if (WiFi.status() == WL_CONNECTED) {
-    HTTPClient http;
-    http.begin("http://" + String(receiverIP) + "/led");
-    http.addHeader("Content-Type", "text/plain");
-    int httpCode = http.POST("on");
-    logMessage("POST response: " + String(httpCode));
-    http.end();
+    const char* message = "on";
+    udp.beginPacket(receiverIP, udpPort);
+    udp.write((const uint8_t*)message, strlen(message));  // Fixed line
+    udp.endPacket();
+    logMessage("Sent UDP: on");
   } else {
-    logMessage("WiFi not connected. Skipping POST.");
+    logMessage("WiFi not connected. Skipping UDP.");
   }
 }
+
