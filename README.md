@@ -108,7 +108,7 @@ Open the [Doorbell](https://github.com/HaiseKen05/ESP32Doorbell/tree/main/Doorbe
 Download or clone the repo using:
 
 ```bash
-https://github.com/HaiseKen05/ESP32Doorbell.git
+git clone https://github.com/HaiseKen05/ESP32Doorbell.git
 ```
 locate: 
 **InsideUnit.ino (for the receiver ESP32)**
