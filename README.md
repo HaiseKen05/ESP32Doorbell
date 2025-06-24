@@ -28,7 +28,6 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 -  If the doorbell is connected to the WiFi and no output it means that it had trouble sending data to the network, find a place with less obstacles to avoid signal degradation.
 -  Make sure both ESP32s and the doorbell module are connected to a stable 5V power source.
 -  Make sure that the Receiver ESP32 has all common GND, specifically on GPIO18, if not the ringtone will not work.
--  The whole thing will not work if the WiFi network is not connected to the internet. 
 
 -------------------------------------------------------------------------------------------
 
