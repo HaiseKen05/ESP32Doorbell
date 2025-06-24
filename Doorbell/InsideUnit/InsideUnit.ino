@@ -2,8 +2,8 @@
 #include <WiFiUdp.h>
 
 // Wi-Fi Credentials
-const char* ssid = ""; // Input your WiFi network here
-const char* password = ""; // WiFi Password
+const char* ssid = " "; // Input your WiFi network here
+const char* password = " "; // WiFi Password
 
 // UDP Settings
 WiFiUDP udp;
@@ -11,8 +11,8 @@ const int udpPort = 4210;
 char incomingPacket[255];
 
 // Pins
-const int ledPin = 2;              // Main output LED
-const int wifiStatusLed = 4;       // Wi-Fi status indicator
+const int ledPin = 2;              // Change this to a differnt GPIO Pin to suit your liking
+const int wifiStatusLed = 4;       // WiFi Status LED indicator, can be a different GPIO 
 #define DF_IO_PIN 18               // DFPlayer IO trigger
 
 // Timing Configs
