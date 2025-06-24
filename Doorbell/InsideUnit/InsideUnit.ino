@@ -1,12 +1,14 @@
 #include <WiFi.h>
-#include <WebServer.h>
+#include <WiFiUdp.h>
 
 // Wi-Fi Credentials
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "ESP32-AP";
+const char* password = "ESP32-Connect";
 
-// Web Server on port 80
-WebServer server(80);
+// UDP Settings
+WiFiUDP udp;
+const int udpPort = 4210;
+char incomingPacket[255];
 
 // Pins
 const int ledPin = 2;              // Main output LED
@@ -23,23 +25,6 @@ void shortTap() {
   digitalWrite(DF_IO_PIN, LOW);
   delay(TAP_MS);
   pinMode(DF_IO_PIN, INPUT_PULLUP);  // Return to idle state
-}
-
-// HTTP POST Handler
-void handleLED() {
-  if (server.method() == HTTP_POST) {
-    String body = server.arg("plain");
-    Serial.print("Received POST body: ");
-    Serial.println(body);
-
-    if (body == "on") {
-      digitalWrite(ledPin, HIGH);
-      shortTap();                  // Trigger DFPlayer when LED activates
-      delay(1000);
-      digitalWrite(ledPin, LOW);
-    }
-  }
-  server.send(200, "text/plain", "OK");
 }
 
 void setup() {
@@ -62,12 +47,30 @@ void setup() {
 
   digitalWrite(wifiStatusLed, HIGH); // Indicate Wi-Fi is ready
 
-  server.on("/led", HTTP_POST, handleLED);
-  server.begin();
+  // Begin UDP listener
+  udp.begin(udpPort);
+  Serial.println("UDP server started");
 }
 
 void loop() {
-  server.handleClient();
+  // Check for incoming UDP packets
+  int packetSize = udp.parsePacket();
+  if (packetSize) {
+    int len = udp.read(incomingPacket, 255);
+    if (len > 0) {
+      incomingPacket[len] = 0;  // Null-terminate the string
+    }
+
+    Serial.print("Received UDP packet: ");
+    Serial.println(incomingPacket);
+
+    if (String(incomingPacket) == "on") {
+      digitalWrite(ledPin, HIGH);
+      shortTap();                  // Trigger DFPlayer when LED activates
+      delay(1000);
+      digitalWrite(ledPin, LOW);
+    }
+  }
 
   // Wi-Fi Reconnect Logic
   if (WiFi.status() != WL_CONNECTED && millis() - lastReconnectAttempt > 30000) {
