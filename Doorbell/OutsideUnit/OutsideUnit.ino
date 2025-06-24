@@ -11,17 +11,17 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // Wi-Fi credentials
-const char* ssid = "ESP32-AP";
-const char* password = "ESP32-Connect";
-const char* receiverIP = "192.168.254.118";  // e.g., "192.168.4.3" if using static IP setup
+const char* ssid = " "; // WiFi Name
+const char* password = " "; // WiFi Password
+const char* receiverIP = " ";  // e.g., "192.168.4.3" if using static IP setup
 
 // UDP setup
 WiFiUDP udp;
 const int udpPort = 4210;
 
 // Pins
-const int buttonPin = 4;
-const int wifiLedPin = 2;
+const int buttonPin = 4; // You can change this to your desired GPIO Pin
+const int wifiLedPin = 2; // Can use the Built-in LED or change to a different GPIO Pin 
 
 // Timing
 unsigned long lastWifiCheck = 0;
