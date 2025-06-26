@@ -92,7 +92,7 @@ ESP32 Doorbell made by a ChatGPT (Code for the ESP32) and the wiring is done by 
 
 
 -------------------------------------------------------------------------------------------
-🚀 Getting Started
+🚀# Getting Started
 Follow these steps to set up your ESP32 Doorbell system:
 
 1. Install Arduino IDE & ESP32 Board Support
